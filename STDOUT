@@ -1,0 +1,142 @@
+@Propertyselection
+Feature: Login and select the property
+
+  Scenario: Launch the NoBroker app and Login # NoBroker.feature:4
+    Given Launch the NoBroker app             # NoBrokerSteps.launch_the_NoBroker_app()
+    When Land on the Home Page                # NoBrokerSteps.land_on_the_Home_Page()
+    Then login the app                        # NoBrokerSteps.login_the_app(DataTable)
+
+  Scenario: Search the City details and apply bedroom filter                            # NoBroker.feature:11
+    When Select ‘Buy’ property related option and Click on the ‘Search’ related box     # NoBrokerSteps.select_Buy_property_related_option_and_Click_on_the_Search_related_box()
+    Then select “Bangalore” city and select two localities(Marathahalli and HSR Layout) # NoBrokerSteps.select_Bangalore_city_and_select_two_localities_Marathahalli_and_HSR_Layout()
+    Then Click on the checkbox “Include nearby Properties”                              # NoBrokerSteps.click_on_the_checkbox_Include_nearby_Properties()
+    Then Select 2 Bhk and 3 Bhk from the number of bedrooms section                     # NoBrokerSteps.select_Bhk_and_Bhk_from_the_number_of_bedrooms_section(int,int)
+
+  Scenario: Scroll down on the Property list and give Wronginfo feedback        # NoBroker.feature:17
+    When Scroll down on the Property listing page and click on the 4th property # NoBrokerSteps.scroll_down_on_the_Property_listing_page_and_click_on_the_th_property(int)
+    Then Scroll down to till end and click on “Wrong Info”                      # NoBrokerSteps.scroll_down_to_till_end_and_click_on_Wrong_Info()
+      org.openqa.selenium.UnsupportedCommandException: Could not parse UiSelector argument: wrongInfo is not a string
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'LKB-L-031', ip: '192.168.217.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+      Driver info: io.appium.java_client.android.AndroidDriver
+      Capabilities {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, databaseEnabled: false, desired: {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, deviceName: WDM3Y18810002926, platformName: android}, deviceManufacturer: HUAWEI, deviceModel: LND-AL30, deviceName: WDM3Y18810002926, deviceScreenSize: 720x1440, deviceUDID: WDM3Y18810002926, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
+      Session ID: c5014330-4e62-4132-8f4b-015eb7a38155
+      *** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text(wrongInfo))}
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+      	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+      	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+      	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+      	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
+      	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+      	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+      	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+      	at PageObjects.NoBrokerPageObjects.selectWrongInfo(NoBrokerPageObjects.java:224)
+      	at StepDefinition.NoBrokerSteps.scroll_down_to_till_end_and_click_on_Wrong_Info(NoBrokerSteps.java:64)
+      	at ✽.Then Scroll down to till end and click on “Wrong Info”(NoBroker.feature:19)
+
+    Then Select all check-boxes in “What’s wrong” section and click on Report   # NoBrokerSteps.select_all_check_boxes_in_What_s_wrong_section_and_click_on_Report()
+
+  Scenario: Change the cofiguration and save changes with success message       # NoBroker.feature:22
+    When Change 3BHK to 4+BHK from ‘whats is the correct configuration’ section # NoBrokerSteps.change_BHK_to_BHK_from_whats_is_the_correct_configuration_section(int,int)
+      org.openqa.selenium.NoSuchSessionException: The driver was unexpectedly shut down!
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'LKB-L-031', ip: '192.168.217.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+      Driver info: io.appium.java_client.android.AndroidDriver
+      Capabilities {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, databaseEnabled: false, desired: {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, deviceName: WDM3Y18810002926, platformName: android}, deviceManufacturer: HUAWEI, deviceModel: LND-AL30, deviceName: WDM3Y18810002926, deviceScreenSize: 720x1440, deviceUDID: WDM3Y18810002926, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
+      Session ID: c5014330-4e62-4132-8f4b-015eb7a38155
+      *** Element info: {Using=xpath, value=//*[@resource-id='com.nobroker.app:id/sp_bhk_type']}
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+      	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+      	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+      	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+      	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:152)
+      	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+      	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+      	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+      	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+      	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+      	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+      	at com.sun.proxy.$Proxy15.isDisplayed(Unknown Source)
+      	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+      	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+      	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+      	at PageObjects.NoBrokerPageObjects.change3bhkTo4bhk(NoBrokerPageObjects.java:246)
+      	at StepDefinition.NoBrokerSteps.change_BHK_to_BHK_from_whats_is_the_correct_configuration_section(NoBrokerSteps.java:76)
+      	at ✽.When Change 3BHK to 4+BHK from ‘whats is the correct configuration’ section(NoBroker.feature:23)
+
+    Then click on the “save changes” button and verify the successful message   # NoBrokerSteps.click_on_the_save_changes_button_and_verify_the_successful_message()
+.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+      	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+      	at PageObjects.NoBrokerPageObjects.<init>(NoBrokerPageObjects.java:40)
+      	at StepDefinition.NoBrokerSteps.scroll_down_on_the_Property_listing_page_and_click_on_the_th_property(NoBrokerSteps.java:56)
+      	at ✽.When Scroll down on the Property listing page and click on the 4th property(NoBroker.feature:16)
+
+    Then Scroll down to till end and click on “Wrong Info”                      # NoBrokerSteps.scroll_down_to_till_end_and_click_on_Wrong_Info()
+    Then Select all check-boxes in “What’s wrong” section and click on Report   # NoBrokerSteps.select_all_check_boxes_in_What_s_wrong_section_and_click_on_Report()
+
+  Scenario: Change the cofiguration and save changes with success message       # NoBroker.feature:20
+    When Change 3BHK to 4+BHK from ‘whats is the correct configuration’ section # NoBrokerSteps.change_BHK_to_BHK_from_whats_is_the_correct_configuration_section(int,int)
+      org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'LKB-L-031', ip: '192.168.217.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+      Driver info: io.appium.java_client.android.AndroidDriver
+      Capabilities {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, databaseEnabled: false, desired: {appActivity: com.nobroker.app.activities..., appPackage: com.nobroker.app, automationName: UiAutomator1, deviceName: WDM3Y18810002926, platformName: android}, deviceManufacturer: HUAWEI, deviceModel: LND-AL30, deviceName: WDM3Y18810002926, deviceScreenSize: 720x1440, deviceUDID: WDM3Y18810002926, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
+      Session ID: c2b6bec4-2694-40a5-8afc-eec43466a47c
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+      	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+      	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+      	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+      	at PageObjects.NoBrokerPageObjects.<init>(NoBrokerPageObjects.java:40)
+      	at StepDefinition.NoBrokerSteps.change_BHK_to_BHK_from_whats_is_the_correct_configuration_section(NoBrokerSteps.java:74)
+      	at ✽.When Change 3BHK to 4+BHK from ‘whats is the correct configuration’ section(NoBroker.feature:21)
+
+    Then click on the “save changes” button and verify the successful message   # NoBrokerSteps.click_on_the_save_changes_button_and_verify_the_successful_message()
